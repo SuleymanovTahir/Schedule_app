@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Schedule</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Times</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+                <th>Teachers</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lesson in lessons %}
+            <tr>
+                <td>{{ lesson.time_start }} - {{ lesson.time_end }}</td>
+                <td>{{ lesson.group.name if lesson.group else '' }}</td>
+                <td>{{ lesson.group.name if lesson.group else '' }}</td>
+                <td>{{ lesson.group.name if lesson.group else '' }}</td>
+                <td>{{ lesson.group.name if lesson.group else '' }}</td>
+                <td>{{ lesson.group.name if lesson.group else '' }}</td>
+                <td>{{ lesson.group.name if lesson.group else '' }}</td>
+                <td>{{ lesson.group.name if lesson.group else '' }}</td>
+                <td>{{ lesson.teacher.name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
